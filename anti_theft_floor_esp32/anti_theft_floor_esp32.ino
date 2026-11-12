@@ -1,9 +1,6 @@
 // ==========================================
 // BLYNK CONFIGURATION
 // ==========================================
-#define BLYNK_TEMPLATE_ID "TMPL6N8bBOhvB"
-#define BLYNK_TEMPLATE_NAME "Anti Theft Flooring"
-#define BLYNK_AUTH_TOKEN "YOUR_BLYNK_AUTH_TOKEN"
 #define BLYNK_PRINT Serial
 
 // ==========================================
@@ -20,8 +17,8 @@
 // ==========================================
 // WIFI
 // ==========================================
-char ssid = "YOUR_WIFI_SSID";
-char pass = "YOUR_WIFI_PASSWORD";
+char ssid[] = "YOUR_WIFI_SSID";
+char pass[] = "YOUR_WIFI_PASSWORD";
 
 // ==========================================
 // OLED CONFIG
@@ -131,7 +128,7 @@ void setup() {
   // ==========================================
   // CONNECT TO BLYNK
   // ==========================================
-  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+  Blynk.begin("", ssid, pass);
 
   // ==========================================
   // READY SCREEN

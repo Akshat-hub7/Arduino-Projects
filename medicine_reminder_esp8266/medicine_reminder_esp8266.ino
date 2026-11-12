@@ -1,18 +1,13 @@
-#define BLYNK_TEMPLATE_ID "TMPL2uVEF7Uuq"
-#define BLYNK_TEMPLATE_NAME "Medicine Reminder System"
-#define BLYNK_AUTH_TOKEN "YOUR_BLYNK_AUTH_TOKEN"
-
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 
-char auth[] = BLYNK_AUTH_TOKEN;
-char ssid = "YOUR_WIFI_SSID"; // Ensure this matches your router/hotspot
-char pass = "YOUR_WIFI_PASSWORD";
+char ssid[] = "YOUR_WIFI_SSID"; // Ensure this matches your router/hotspot
+char pass[] = "YOUR_WIFI_PASSWORD";
 
 void setup() {
   // Must match the Arduino's Serial.begin(9600)
   Serial.begin(9600);
-  Blynk.begin(auth, ssid, pass);
+  Blynk.begin("", ssid, pass);
 }
 
 // Receive Time from Blynk App and forward to Arduino ATmega328P

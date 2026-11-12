@@ -47,7 +47,7 @@ These are independent prototypes, not one combined firmware. Pin assignments, se
 
 ## Credentials and configuration
 
-Embedded Wi-Fi passwords, Blynk authentication tokens, Telegram bot credentials, and API keys have been replaced with placeholders so private values are not published. Before using a network-enabled sketch, replace placeholders such as `YOUR_WIFI_SSID`, `YOUR_WIFI_PASSWORD`, `YOUR_BLYNK_AUTH_TOKEN`, `YOUR_TELEGRAM_BOT_TOKEN`, `YOUR_TELEGRAM_CHAT_ID`, or `YOUR_API_KEY` with your own values. Do not commit real credentials.
+No Blynk template identifiers, Blynk authentication tokens, API keys, Wi-Fi passwords, or Telegram bot credentials are stored in the published sketches. Network-enabled examples use placeholder Wi-Fi settings. Blynk sketches pass an empty token to `Blynk.begin`; add your token locally to that call if you want to connect them. The GPS tracker omits GeoLinker API-key configuration, and the plant monitor runs locally with its ThingSpeak upload removed. Do not commit real credentials.
 
 If any previously embedded token or password was active, revoke or rotate it before reuse.
 

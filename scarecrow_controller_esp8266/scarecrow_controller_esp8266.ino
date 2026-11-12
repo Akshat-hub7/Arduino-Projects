@@ -1,7 +1,3 @@
-#define BLYNK_TEMPLATE_ID "TMPL3YdnBrDbF"
-#define BLYNK_TEMPLATE_NAME "ScareCrow"
-#define BLYNK_AUTH_TOKEN "YOUR_BLYNK_AUTH_TOKEN"
-
 #define BLYNK_PRINT Serial
 
 #include <ESP8266WiFi.h>
@@ -9,8 +5,8 @@
 #include <Servo.h>
 
 // 🔑 WiFi credentials
-char ssid = "YOUR_WIFI_SSID";
-char pass = "YOUR_WIFI_PASSWORD";
+char ssid[] = "YOUR_WIFI_SSID";
+char pass[] = "YOUR_WIFI_PASSWORD";
 
 #define TRIG 14
 #define ECHO 12
@@ -117,7 +113,7 @@ void setup() {
   servo1.attach(5);
   servo2.attach(4);
 
-  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+  Blynk.begin("", ssid, pass);
 
   timer.setInterval(1000L, sendData);
 }

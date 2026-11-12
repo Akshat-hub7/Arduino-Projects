@@ -1,7 +1,3 @@
-#define BLYNK_TEMPLATE_ID "TMPL3Tznaap96"
-#define BLYNK_TEMPLATE_NAME "Health Monitoring"
-#define BLYNK_AUTH_TOKEN "YOUR_BLYNK_AUTH_TOKEN"
-
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 #include <Wire.h>
@@ -13,8 +9,8 @@
 #include <Ticker.h>
 
 // -------- WiFi --------
-char ssid = "YOUR_WIFI_SSID";
-char pass = "YOUR_WIFI_PASSWORD";
+char ssid[] = "YOUR_WIFI_SSID";
+char pass[] = "YOUR_WIFI_PASSWORD";
 
 // -------- Pins --------
 #define BUZZER_PIN 12
@@ -119,7 +115,7 @@ void setup() {
   mpu.begin();
   dht.begin();
 
-  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+  Blynk.begin("", ssid, pass);
   timerInterrupt.attach_ms(2, onTimerISR);
 
   Serial.println("System Ready");

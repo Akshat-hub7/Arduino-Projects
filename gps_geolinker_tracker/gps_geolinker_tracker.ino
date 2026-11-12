@@ -69,8 +69,6 @@ const char* password = "YOUR_WIFI_PASSWORD";   // Your WiFi network password
 //                   GEOLINKER CONFIGURATION
 // ==================================================================
 
-// API Authentication
-const char* apiKey = "YOUR_API_KEY";    // Your unique GeoLinker API key
 const char* deviceID = "ESP-32_Tracker"; // Unique identifier for this device
 
 // Data Transmission Settings
@@ -113,10 +111,6 @@ void setup() {
   // Initialize GeoLinker with GPS serial interface
   geo.begin(gpsSerial);
   Serial.println("GeoLinker library initialized");
-  
-  // Configure API authentication
-  geo.setApiKey(apiKey);
-  Serial.println("API key configured");
   
   // Set unique device identifier
   geo.setDeviceID(deviceID);

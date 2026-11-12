@@ -1,13 +1,8 @@
-#define BLYNK_TEMPLATE_ID "TMPL3koNUpscI"
-#define BLYNK_TEMPLATE_NAME "Health Monitoring"
-#define BLYNK_AUTH_TOKEN "YOUR_BLYNK_AUTH_TOKEN"
-
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 
-char auth[] = BLYNK_AUTH_TOKEN;
-char ssid = "YOUR_WIFI_SSID";
-char pass = "YOUR_WIFI_PASSWORD";
+char ssid[] = "YOUR_WIFI_SSID";
+char pass[] = "YOUR_WIFI_PASSWORD";
 
 // Timing variable to prevent flooding Blynk
 unsigned long lastUpdate = 0;
@@ -15,7 +10,7 @@ unsigned long lastUpdate = 0;
 void setup() {
   // Must match the ATmega328P Baud Rate
   Serial.begin(115200); 
-  Blynk.begin(auth, ssid, pass);
+  Blynk.begin("", ssid, pass);
 }
 
 void loop() {

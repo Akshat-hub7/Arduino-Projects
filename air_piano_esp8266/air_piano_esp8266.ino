@@ -1,13 +1,8 @@
-#define BLYNK_TEMPLATE_ID "TMPL3qIWBsD4P"
-#define BLYNK_TEMPLATE_NAME "Air Piano"
-#define BLYNK_AUTH_TOKEN "YOUR_BLYNK_AUTH_TOKEN"
-
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 
-char auth[] = BLYNK_AUTH_TOKEN;
-char ssid = "YOUR_WIFI_SSID";
-char pass = "YOUR_WIFI_PASSWORD";
+char ssid[] = "YOUR_WIFI_SSID";
+char pass[] = "YOUR_WIFI_PASSWORD";
 
 // Drum button pin
 #define DRUM_BUTTON D3
@@ -22,7 +17,7 @@ void setup() {
   // Button setup
   pinMode(DRUM_BUTTON, INPUT_PULLUP);
 
-  Blynk.begin(auth, ssid, pass);
+  Blynk.begin("", ssid, pass);
 }
 
 // =========================

@@ -4,16 +4,6 @@
 #include <DHT.h>
 #include "SoftwareSerial.h"
 #include "DFRobotDFPlayerMini.h"
-#include <ESP8266WiFi.h>
-
-// --- WiFi + ThingSpeak ---
-const char* ssid = "YOUR_WIFI_SSID";
-const char* password = "YOUR_WIFI_PASSWORD";
-const char* server = "api.thingspeak.com";
-String apiKey = "YOUR_API_KEY";
-
-WiFiClient client;
-
 // --- Pin Definitions ---
 #define DHTPIN 14         // D5
 #define DHTTYPE DHT11
@@ -61,13 +51,6 @@ void setup() {
     myDFPlayer.playMp3Folder(1); 
   }
 
-  // WiFi Connect
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println("\nWiFi Connected!");
 }
 
 void loop() {
@@ -108,14 +91,6 @@ void loop() {
   display.print("HUMI: "); display.print(h, 1); display.println(" %");
   
   display.display();
-
-  // 3. ThingSpeak Upload
-  if (client.connect(server, 80)) {
-    String url = "/update?api_key=" + apiKey;
-    url += "&field1=" + String(moisture) + "&field2=" + String(t) + "&field3=" + String(h);
-    client.print(String("GET ") + url + " HTTP/1.1\r\n" + "Host: " + server + "\r\n" + "Connection: close\r\n\r\n");
-  }
-  client.stop();
 
   // 4. Watering Logic (3 Seconds) + Restart
   if (moisture < 30) {

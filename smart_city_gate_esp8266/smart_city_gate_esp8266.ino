@@ -1,14 +1,10 @@
-#define BLYNK_TEMPLATE_ID "TMPL3BIGB7M3p"
-#define BLYNK_TEMPLATE_NAME "Smart City"
-#define BLYNK_AUTH_TOKEN "YOUR_BLYNK_AUTH_TOKEN"
-
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 #include <Servo.h>
 
 // WiFi
-char ssid = "YOUR_WIFI_SSID";
-char pass = "YOUR_WIFI_PASSWORD";
+char ssid[] = "YOUR_WIFI_SSID";
+char pass[] = "YOUR_WIFI_PASSWORD";
 
 // GPIO pins
 #define SERVO_PIN 5        // D1
@@ -44,7 +40,7 @@ void setup() {
   gateServo.attach(SERVO_PIN);
   gateServo.write(0);
 
-  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+  Blynk.begin("", ssid, pass);
 
   timer.setInterval(1000L, sendToBlynk);
 

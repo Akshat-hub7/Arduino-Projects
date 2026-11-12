@@ -1,12 +1,8 @@
-#define BLYNK_TEMPLATE_ID "TMPL3oeJrgm-x"
-#define BLYNK_TEMPLATE_NAME "Water Monitoring"
-#define BLYNK_AUTH_TOKEN "YOUR_BLYNK_AUTH_TOKEN"
-
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 
-char ssid = "YOUR_WIFI_SSID";
-char pass = "YOUR_WIFI_PASSWORD";
+char ssid[] = "YOUR_WIFI_SSID";
+char pass[] = "YOUR_WIFI_PASSWORD";
 
 String dataString = "";
 
@@ -27,7 +23,7 @@ BLYNK_WRITE(V6) {
 
 void setup() {
   Serial.begin(9600);
-  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+  Blynk.begin("", ssid, pass);
 }
 
 void loop() {

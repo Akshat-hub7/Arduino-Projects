@@ -1,19 +1,15 @@
-#define BLYNK_TEMPLATE_ID "TMPL3BIGB7M3p"
-#define BLYNK_TEMPLATE_NAME "Smart City"
-#define BLYNK_AUTH_TOKEN "YOUR_BLYNK_AUTH_TOKEN"
-
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 
 // WiFi Credentials
-char ssid = "YOUR_WIFI_SSID";
-char pass = "YOUR_WIFI_PASSWORD";
+char ssid[] = "YOUR_WIFI_SSID";
+char pass[] = "YOUR_WIFI_PASSWORD";
 
 void setup() {
   // Serial baud rate MUST match the Arduino Uno (9600)
   Serial.begin(9600);
   
-  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+  Blynk.begin("", ssid, pass);
   
   Serial.println("NodeMCU Online");
 }
