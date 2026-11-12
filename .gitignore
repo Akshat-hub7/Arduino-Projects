@@ -1,0 +1,27 @@
+# Arduino build output
+build/
+*.elf
+*.hex
+*.bin
+*.eep
+*.o
+*.a
+*.d
+*.lss
+
+# Local editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Local credentials and configuration
+.env
+.env.*
+secrets.h
+credentials.h
+
+# Locally archived duplicate, intentionally not published
+_excluded_duplicates/
